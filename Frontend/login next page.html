@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized File Storage</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #180202;
+            background: url('https://via.placeholder.com/1500') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background: #4caf50;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #3e8e41;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 1.3rem;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Decentralized File Storage</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="fileInput">Choose File:</label>
+        <input type="file" name="file" id="fileInput" required />
+        <button type="button" onclick="uploadFile()">Upload</button>
+    </form>
+    <p id="result"></p>
+    <footer>
+        <p>💾 Powered by Decentralized Technologies 🌐</p>
+    </footer>
+
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            if (!fileInput.files[0]) {
+                document.getElementById('result').innerText = 'Error: Please choose a file.';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            // Example email handling; replace with your logic
+            const email = "shwethakm7676@gmail.com";
+            formData.append("email", email);
+
+            document.getElementById('result').innerText = 'Uploading file...';
+
+            try {
+                const response = await fetch('http://127.0.0.1:5908/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    document.getElementById('result').innerText = `File uploaded successfully! IPFS Hash: ${result.ipfs_hash}`;
+                } else {
+                    document.getElementById('result').innerText = `Error: ${result.error}`;
+                }
+            } catch (error) {
+                document.getElementById('result').innerText = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
