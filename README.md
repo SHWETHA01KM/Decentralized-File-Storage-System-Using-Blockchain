@@ -1,11 +1,11 @@
-# *Decentralized File Storage System*
+# *Decentralized File Storage System
 
-## *Overview*
+# *Overview*
 The Decentralized File Storage System is a secure and efficient platform that allows users to upload, store, and manage their files on a decentralized network using IPFS (InterPlanetary File System). The system also incorporates user authentication and file metadata storage using MongoDB for a seamless user experience.
 
 ---
 
-## *Features*
+# *Features*
 - *User Authentication*: Secure signup and login functionality using email and password.
 - *Decentralized Storage*: File storage and retrieval using Pinata, an IPFS-based service.
 - *File Management*: Upload, view, and delete files with their associated metadata.
