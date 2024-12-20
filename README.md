@@ -66,7 +66,7 @@ Future Enhancements
 - Enhance the system with file search and categorization.
 - Provide file preview capabilities directly from the IPFS hash.
 
-License
+License:
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Acknowledgments
