@@ -1,6 +1,6 @@
 # Decentralized File Storage System
 
-Overview:
+Overview
 
 The Decentralized File Storage System is a secure and efficient platform that allows users to upload, store, and manage their files on a decentralized network using IPFS (InterPlanetary File System). The system also incorporates user authentication and file metadata storage using MongoDB for a seamless user experience.
 
@@ -67,7 +67,8 @@ Future Enhancements
 - Enhance the system with file search and categorization.
 - Provide file preview capabilities directly from the IPFS hash.
 
-License:
+License
+
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Acknowledgments
